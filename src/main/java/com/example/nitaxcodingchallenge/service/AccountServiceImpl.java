@@ -20,6 +20,7 @@ import com.example.nitaxcodingchallenge.utility.Util;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -50,7 +51,7 @@ public class AccountServiceImpl implements AccountService{
 
 
     @Autowired
-    public void setAuthenticationManager(AuthenticationManager authenticationManager) {
+    public void setAuthenticationManager(@Lazy AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
     }
 
@@ -65,7 +66,7 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Autowired
-    public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public void setbCryptPasswordEncoder(@Lazy BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
