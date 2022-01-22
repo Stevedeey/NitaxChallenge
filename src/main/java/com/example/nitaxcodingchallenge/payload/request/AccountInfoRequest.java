@@ -1,6 +1,6 @@
 package com.example.nitaxcodingchallenge.payload.request;
 
-import com.digicore.digicore_banking_web_application.payload.response.AccountResponse;
+import com.example.nitaxcodingchallenge.payload.response.AccountResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
