@@ -5,6 +5,8 @@ public class SecurityConstant {
     public static final String PUBLIC_URIS[] = new String[]{
             "/api/auth/**",
             "/create/**",
-            "/api/withdraw"
+            "/api/account/create",
+            "/api/withdraw",
+            "/api/account/withdraw",
     };
 }
