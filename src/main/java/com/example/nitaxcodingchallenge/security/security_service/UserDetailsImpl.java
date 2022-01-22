@@ -1,6 +1,6 @@
 package com.example.nitaxcodingchallenge.security.security_service;
 
-import com.digicore.digicore_banking_web_application.model.AccountEntity;
+import com.example.nitaxcodingchallenge.model.Account;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -28,7 +28,7 @@ public class UserDetailsImpl implements UserDetails {
         this.password = password;
     }
 
-    public static UserDetailsImpl build(AccountEntity account){
+    public static UserDetailsImpl build(Account account){
         return  new UserDetailsImpl(account.getAccountName(),
                 account.getAccountNumber(),account.getBalance(),
                 account.getPassword());

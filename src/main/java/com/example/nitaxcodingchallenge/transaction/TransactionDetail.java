@@ -1,6 +1,5 @@
-package com.example.nitaxcodingchallenge.payload.response;
+package com.example.nitaxcodingchallenge.transaction;
 
-import com.example.nitaxcodingchallenge.model.Account;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,10 +8,12 @@ import lombok.ToString;
 import java.util.Date;
 
 @Data
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class AccountStatementResponse {
+public class TransactionDetail {
+
+    private String accountNumber;
 
     private Date transactionDate;
 
@@ -20,11 +21,7 @@ public class AccountStatementResponse {
 
     private String narration;
 
-    private  Double amount;
+    private Double amount;
 
     private Double accountBalance;
-
-    private Account account;
-
-
 }

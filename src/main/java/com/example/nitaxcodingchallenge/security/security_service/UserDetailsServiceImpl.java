@@ -1,6 +1,7 @@
 package com.example.nitaxcodingchallenge.security.security_service;
 
 
+import com.example.nitaxcodingchallenge.exception.ApiResourceNotFoundException;
 import com.example.nitaxcodingchallenge.model.Account;
 import com.example.nitaxcodingchallenge.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    AccountService accountService;
+    private AccountService accountService;
 
     @Autowired
     public void setAccountService(AccountService accountService) {

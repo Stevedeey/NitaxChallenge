@@ -53,11 +53,21 @@ public class ApiExceptionHandler {
      * In short it catches any error thrown at method level.
      * */
 
+//    @ExceptionHandler(value = {MethodArgumentNotValidException.class})
+//    public ResponseEntity<Object> customValidationErrorHandling1(MethodArgumentNotValidException e){
+//        HttpStatus badRequest = HttpStatus.BAD_REQUEST;
+//        ApiException apiException = new ApiException(e.getBindingResult().getFieldError().getDefaultMessage()
+//                ,false, badRequest, ZonedDateTime.now(ZoneId.of("Z")));
+//
+//        return new ResponseEntity<>(apiException, badRequest);
+//    }
+
     @ExceptionHandler(value = {MethodArgumentNotValidException.class})
     public ResponseEntity<Object> customValidationErrorHandling(MethodArgumentNotValidException e){
         HttpStatus badRequest = HttpStatus.BAD_REQUEST;
-        ApiException apiException = new ApiException(e.getBindingResult().getFieldError().getDefaultMessage()
-                ,false, badRequest, ZonedDateTime.now(ZoneId.of("Z")));
+        String message = e.getBindingResult().getFieldError() == null ? e.getAllErrors().get(0).getDefaultMessage() : e.getBindingResult().getFieldError().getDefaultMessage();
+
+        ApiException apiException = new ApiException(message, false, badRequest, ZonedDateTime.now(ZoneId.of("Z")));
 
         return new ResponseEntity<>(apiException, badRequest);
     }
