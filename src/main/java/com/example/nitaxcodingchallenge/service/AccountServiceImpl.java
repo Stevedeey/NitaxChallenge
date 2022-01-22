@@ -281,6 +281,7 @@ public class AccountServiceImpl implements AccountService{
 
     @Override
     public ResponseEntity<AccountInfoResponse> getAccountInfo(String accountNumber) {
+        log.info(">>>i got in getAccountIfo Service");
         AccountInfoResponse accountInfoResponse = new AccountInfoResponse();
         AccountResponse accountResponse = new AccountResponse();
 

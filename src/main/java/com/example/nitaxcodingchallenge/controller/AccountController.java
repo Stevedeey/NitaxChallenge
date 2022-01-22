@@ -9,6 +9,7 @@ import com.example.nitaxcodingchallenge.payload.response.CreateAccountResponse;
 import com.example.nitaxcodingchallenge.payload.response.DepositResponse;
 import com.example.nitaxcodingchallenge.service.AccountService;
 import com.example.nitaxcodingchallenge.transaction.TransactionHistory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@RequestMapping(path = "/api/account")
+@Slf4j
 public class AccountController {
     private final AccountService service;
 
@@ -25,13 +28,14 @@ public class AccountController {
     }
 
 
-    @GetMapping(path = "account_info/{accountNumber}")
+    @GetMapping(path = "/info/{accountNumber}")
     public ResponseEntity<AccountInfoResponse> getAccountInfo(@PathVariable String accountNumber) {
+        log.info(">>>i got in getAccountIfo Controller");
 
         return service.getAccountInfo(accountNumber);
     }
 
-    @GetMapping(path = "account_statement/{accountNumber}")
+    @GetMapping(path = "/statement/{accountNumber}")
     public ResponseEntity<TransactionHistory> getTransactionHistory(@PathVariable String accountNumber) {
         return service.getTransactionHistory(accountNumber);
     }
